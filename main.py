@@ -7,25 +7,25 @@ from platform_detector import get_platform_info
 
 def main():
     info = get_platform_info()
-    print("=" * 50)
-    print("The Lighthouse - Interactive AI 3D Scanner")
-    print("=" * 50)
-    print(f"Platform: {'Raspberry Pi' if info['is_pi'] else 'Development (Mock Hardware)'}")
-    print(f"System: {info['system']}")
-    print(f"Python: {info['python_version']}")
-    print("=" * 50)
+    print("*" * 60)
+    print(" VoxelScan 3D - AI-Powered Modeler")
+    print("*" * 60)
+    print(f"Running Environment: {'Embedded (Raspberry Pi)' if info['is_pi'] else 'Desktop (Mock Hardware)'}")
+    print(f"OS: {info['system']}")
+    print(f"Python Version: {info['python_version']}")
+    print("*" * 60)
     
     cfg = get_config()
     key = cfg.get('ai', 'gemini', 'api_key', default='')
     
     if not key:
-        print("\n⚠ WARNING: Gemini API key not configured!")
-        print("   Set GEMINI_API_KEY environment variable or update config.yaml\n")
+        print("\n*** ACTION REQUIRED ***")
+        print("  Gemini API key is missing. Please set GEMINI_API_KEY or edit config.yaml.\n")
     else:
-        print("✓ Gemini API key configured")
+        print("[OK] Gemini API key loaded successfully.")
     
-    print("✓ Blender required for 3D model generation")
-    print("  Download from: https://www.blender.org/download/\n")
+    print("[INFO] Blender installation is necessary for mesh creation.")
+    print("  Grab it here: https://www.blender.org/download/\n")
     
     root = tk.Tk()
     app = MainWindow(root)

@@ -1,0 +1,30 @@
+# The Lighthouse - Python Dependencies
+
+# GUI
+# tkinter is usually included with Python, no need to install
+
+# HTTP requests for APIs
+requests>=2.31.0
+
+# Configuration file parsing
+pyyaml>=6.0
+
+# Google Gemini API
+google-generativeai>=0.3.0
+
+# 3D model viewing (optional, for basic viewer)
+# trimesh>=3.20.0  # Uncomment if needed for 3D file parsing
+
+# Raspberry Pi GPIO (only needed on Pi)
+# RPi.GPIO>=0.7.1  # Install manually on Pi: pip install RPi.GPIO
+
+# Camera interface (only needed on Pi)
+# picamera2>=0.3.0  # Install manually on Pi: pip install picamera2
+
+# For webcam fallback on laptop
+opencv-python>=4.8.0
+
+# Blender Python API (bpy) - requires Blender installation
+# Blender must be installed separately and available in PATH
+# Download from: https://www.blender.org/download/
+

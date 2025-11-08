@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import List, Optional, Callable
 from PIL import Image
 from hardware import Turntable, DepthSensor, Camera
-from api_clients import GeminiBlenderClient, BlenderClient
+from api_Clients import GeminiBlenderClient, BlenderClient
 from config_loader import get_config
 
 

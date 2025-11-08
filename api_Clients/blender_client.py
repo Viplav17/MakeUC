@@ -3,6 +3,7 @@ import subprocess
 import tempfile
 import shutil
 import time
+import re
 from typing import Optional
 from config_loader import get_config
 
@@ -17,16 +18,41 @@ class BlenderClient:
         self.output_dir = 'models'
         os.makedirs(self.output_dir, exist_ok=True)
     
+    def _sanitize_code(self, raw_code: str) -> str:
+        code = raw_code.strip()
+        
+        code = re.sub(r'^```python\s*', '', code, flags=re.MULTILINE)
+        code = re.sub(r'^```\s*', '', code, flags=re.MULTILINE)
+        code = re.sub(r'\s*```\s*$', '', code, flags=re.MULTILINE)
+        
+        lines = code.split('\n')
+        cleaned_lines = []
+        for line in lines:
+            if line.strip().startswith('```'):
+                continue
+            cleaned_lines.append(line)
+        
+        code = '\n'.join(cleaned_lines).strip()
+        
+        while code.startswith('```'):
+            code = code[3:].strip()
+        while code.endswith('```'):
+            code = code[:-3].strip()
+        
+        return code
+    
     def generate_3d_model(self, code: str, progress_callback=None) -> Optional[str]:
         try:
             if progress_callback:
                 progress_callback("Preparing script...", 10)
             
+            sanitized_code = self._sanitize_code(code)
+            
             script_file = tempfile.NamedTemporaryFile(mode='w', suffix='.py', delete=False)
             script_path = script_file.name
             
             try:
-                full_script = self._wrap_code(code, script_path)
+                full_script = self._wrap_code(sanitized_code, script_path)
                 script_file.write(full_script)
                 script_file.close()
                 
@@ -117,7 +143,7 @@ except Exception as e:
                 cmd,
                 capture_output=True,
                 text=True,
-                timeout=300,
+                timeout=120,
                 check=False
             )
             

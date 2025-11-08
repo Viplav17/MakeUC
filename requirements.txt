@@ -21,9 +21,6 @@ google-generativeai>=0.3.0
 # Camera interface (only needed on Pi)
 # picamera2>=0.3.0  # Install manually on Pi: pip install picamera2
 
-# For webcam fallback on laptop
-opencv-python>=4.8.0
-
 # Blender Python API (bpy) - requires Blender installation
 # Blender must be installed separately and available in PATH
 # Download from: https://www.blender.org/download/

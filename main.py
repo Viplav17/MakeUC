@@ -2,17 +2,11 @@ import tkinter as tk
 import sys
 from gui.main_window import MainWindow
 from config_loader import get_config
-from platform_detector import get_platform_info
 
 
 def main():
-    info = get_platform_info()
     print("*" * 60)
-    print(" VoxelScan 3D - AI-Powered Modeler")
-    print("*" * 60)
-    print(f"Running Environment: {'Embedded (Raspberry Pi)' if info['is_pi'] else 'Desktop (Mock Hardware)'}")
-    print(f"OS: {info['system']}")
-    print(f"Python Version: {info['python_version']}")
+    print(" The Lighthouse - AI-Powered 3D Scanner")
     print("*" * 60)
     
     cfg = get_config()

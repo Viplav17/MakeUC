@@ -7,7 +7,6 @@ import os
 from typing import Optional
 from scanner import Scanner
 from config_loader import get_config
-from platform_detector import get_platform_info
 
 
 class MainWindow:
@@ -47,16 +46,6 @@ class MainWindow:
             bg='#1a1a1a'
         )
         subtitle.pack()
-        
-        info = get_platform_info()
-        platform = tk.Label(
-            header,
-            text=f"Platform: {'Raspberry Pi' if info['is_pi'] else 'Development (Mock Hardware)'}",
-            font=('Arial', 10),
-            fg='#666666',
-            bg='#1a1a1a'
-        )
-        platform.pack()
         
         content = tk.Frame(self.root, bg='#1a1a1a')
         content.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)

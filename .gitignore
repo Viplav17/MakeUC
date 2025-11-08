@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+MakeUc/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.glb
+*.obj
+*.stl
+*.ply
+models/
+downloads/
+*.log
+
+# Scanned images and data
+scans/
+temp_images/
+
+# Config with secrets - DO NOT COMMIT API KEYS
+config.yaml
+config.local.yaml
+*.key
+*.secret
+
+# Documentation (optional - remove if you want to track these)
+TESTING_GUIDE.md
+

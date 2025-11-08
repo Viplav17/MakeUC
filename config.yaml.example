@@ -1,0 +1,43 @@
+# The Lighthouse Configuration File
+# 
+# COPY THIS FILE TO config.yaml AND ADD YOUR API KEY
+# config.yaml is in .gitignore and will NOT be committed to git
+
+# Hardware Settings
+hardware:
+  # Turntable motor settings
+  turntable:
+    burst_duration_ms: 500  # Duration to rotate ~45 degrees
+    steps_per_scan: 8       # Number of photos to capture (360/45 = 8)
+  
+  # Depth sensor settings
+  depth_sensor:
+    trigger_pin: 18         # GPIO pin for trigger (Pi only)
+    echo_pin: 24            # GPIO pin for echo (Pi only)
+    timeout_us: 30000       # Timeout in microseconds
+  
+  # Camera settings
+  camera:
+    resolution_width: 1920
+    resolution_height: 1080
+    rotation: 0             # Camera rotation in degrees
+
+# AI API Settings
+ai:
+  # Google Gemini API
+  gemini:
+    api_key: ""  # Set your API key here or via environment variable GEMINI_API_KEY
+    model: "gemini-2.5-pro"  # Using Gemini 2.5 Pro model
+  
+  # 3D Model Generation (Blender)
+  reconstruction:
+    method: "blender_bpy"      # Uses Gemini to generate Blender Python code
+    output_format: "glb"       # Output format: glb, obj, fbx, or ply
+    blender_path: "blender"    # Path to Blender executable (or "blender" if in PATH)
+
+# Application Settings
+app:
+  scan_delay_seconds: 0.5   # Delay between rotation and photo capture
+  mock_delay_seconds: 0.5   # Simulated delay for mock hardware
+  voice_enabled: false      # Voice modification (future feature)
+
